@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import axios from '../api/axiosInstance';
+import axiosInstance from '../api/axiosInstance';
 
 export default function UrlList() {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    axios.get('/')
+    axiosInstance.get('/')
       .then(res => setUrls(res.data))
       .catch(err => console.error(err));
   }, []);
