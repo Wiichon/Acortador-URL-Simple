@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGO_URI, {
   });
 app.use(cors());
 app.use(express.json());
-
+app.get('/favicon.ico', (req, res) => res.status(204));
 app.get('/:short', async (req, res) => {
   const Url = require('./models/Url');
   const url = await Url.findOne({ short: req.params.short });
