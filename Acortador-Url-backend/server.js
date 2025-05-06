@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-const urlRoutes = require('./Acortador-Url-backend/routes/urlRoutes');
+const urlRoutes = require('./routes/urlRoutes');
 
 mongoose.connect(process.env.MONGO_URI, {
   });
