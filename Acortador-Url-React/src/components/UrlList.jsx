@@ -26,7 +26,7 @@ export default function UrlList() {
             <tr key={url._id} className="border-t">
               <td className="block overflow-hidden text-ellipsis whitespace-nowrap text-blue-600 underline">{url.full}</td>
               <td className="max-w-[200px] px-2 py-1 overflow-hidden">
-                <a href={`http://localhost:5000/${url.short}`} target="_blank" rel="noopener noreferrer" className='block overflow-hidden text-ellipsis whitespace-nowrap text-green-600 underline'>
+                <a href={`https://amusing-education-production.up.railway.app/${url.short}`} target="_blank" rel="noopener noreferrer" className='block overflow-hidden text-ellipsis whitespace-nowrap text-green-600 underline'>
                   {url.short}
                 </a>
               </td>
