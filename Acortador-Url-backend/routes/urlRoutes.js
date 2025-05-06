@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const urlController = require('../Acortador-Url-backend/controllers/controlladorUrls');
+const urlController = require('../controllers/controlladorUrls.js');
 
 router.post('/shorten', urlController.createShortUrl);
 router.get('/', urlController.getAllUrls);
