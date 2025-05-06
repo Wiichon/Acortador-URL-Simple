@@ -5,9 +5,15 @@ export default function UrlList() {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
+    // Solicitar las URLs desde el backend
     axiosInstance.get('/')
-      .then(res => setUrls(res.data))
-      .catch(err => console.error(err));
+      .then(res => {
+        console.log('Respuesta de URLs:', res.data);  // Verifica si la respuesta contiene los datos correctamente
+        setUrls(res.data);
+      })
+      .catch(err => {
+        console.error('Error al obtener las URLs:', err);
+      });
   }, []);
 
   return (
