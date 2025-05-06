@@ -6,7 +6,7 @@ export default function UrlList() {
 
   useEffect(() => {
     axiosInstance.get('/')
-      .then(res => setUrls(res.data.data))
+      .then(res => setUrls(res.data))
       .catch(err => console.error(err));
   }, []);
 
