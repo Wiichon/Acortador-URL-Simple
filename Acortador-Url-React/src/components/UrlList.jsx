@@ -22,7 +22,7 @@ export default function UrlList() {
           </tr>
         </thead>
         <tbody>
-          {urls.map((url) => (
+          {Array.isArray(urls) && urls.map((url) => (
             <tr key={url._id} className="border-t">
               <td className="block overflow-hidden text-ellipsis whitespace-nowrap text-blue-600 underline">{url.full}</td>
               <td className="max-w-[200px] px-2 py-1 overflow-hidden">
