@@ -8,7 +8,7 @@ export default function UrlForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/shorten', { full: input });
+      const res = await axios.post('/api/urls/shorten', { full: input });
       setShortUrl(res.data.short);
     } catch (err) {
       console.error(err);

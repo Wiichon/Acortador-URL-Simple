@@ -7,13 +7,8 @@ const urlRoutes = require('./routes/urlRoutes');
 
 mongoose.connect(process.env.MONGO_URI, {
   });
-  const corsOptions = {
-    origin: ['https://acortador-url-simple-production.up.railway.app', 'https://amusing-education-production.up.railway.app'], // Agrega las URL de tu frontend
-    methods: ['GET', 'POST'],
-  };
-  app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
-app.get('/favicon.ico', (req, res) => res.status(204));
 app.get('/:short', async (req, res) => {
   const Url = require('./models/Url');
   const url = await Url.findOne({ short: req.params.short });

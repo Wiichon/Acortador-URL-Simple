@@ -5,16 +5,14 @@ export default function UrlList() {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    // Solicitar las URLs desde el backend
-    axiosInstance.get('/')
-      .then(res => {
-        console.log('Respuesta de URLs:', res.data);  // Verifica si la respuesta contiene los datos correctamente
-        setUrls(res.data);
-      })
-      .catch(err => {
-        console.error('Error al obtener las URLs:', err);
-      });
-  }, []);
+  console.log('BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+  axiosInstance.get('/api/urls')  // Esto hace GET a http://localhost:5000/api/urls
+    .then(res => {
+      console.log('✅ Datos:', res.data);
+      setUrls(res.data);
+    })
+    .catch(err => console.error('❌ Error:', err));
+    }, []);
 
   return (
     <div className="mt-8">
@@ -32,7 +30,12 @@ export default function UrlList() {
             <tr key={url._id} className="border-t">
               <td className="block overflow-hidden text-ellipsis whitespace-nowrap text-blue-600 underline">{url.full}</td>
               <td className="max-w-[200px] px-2 py-1 overflow-hidden">
-                <a href={`content-enthusiasm-production.up.railway.app/${url.short}`} target="_blank" rel="noopener noreferrer" className='block overflow-hidden text-ellipsis whitespace-nowrap text-green-600 underline'>
+                <a
+                  href={`${import.meta.env.VITE_API_BASE_URL}/${url.short}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className='block overflow-hidden text-ellipsis whitespace-nowrap text-green-600 underline'
+                >
                   {url.short}
                 </a>
               </td>
